@@ -9,7 +9,7 @@
             } else {
                 // Si l'article n'existe pas, en créer un
                 const newArticle = document.createElement('article');
-                newArticle.id = 'citation';
+                newArticle.id = 'article';
                 newArticle.textContent = "L'important n'est pas la chute, mais l'atterrissage.";
                 document.body.appendChild(newArticle);
             }
