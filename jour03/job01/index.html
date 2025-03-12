@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Exercice Boutons</title>
+</head>
+<body>
+    <!-- Bouton pour afficher le texte -->
+    <button id="showButton">Afficher le texte</button>
+    <!-- Bouton pour cacher le texte -->
+    <button id="hideButton">Cacher le texte</button>
+    <!-- Élément qui contiendra le texte -->
+    <p id="textContainer" style="display: none;"></p>
+
+    <script>
+        // Sélection des éléments
+        const showButton = document.getElementById('showButton');
+        const hideButton = document.getElementById('hideButton');
+        const textContainer = document.getElementById('textContainer');
+
+        // Texte à afficher
+        const quote = "Les logiciels et les cathédrales, c'est un peu la même chose - d'abord, on les construit, ensuite, on prie.";
+
+        // Événement pour le bouton "Afficher"
+        showButton.addEventListener('click', function() {
+            textContainer.textContent = quote;
+            textContainer.style.display = 'block';
+        });
+
+        // Événement pour le bouton "Cacher"
+        hideButton.addEventListener('click', function() {
+            textContainer.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
