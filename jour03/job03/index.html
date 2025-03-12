@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Jeu du Taquin - La Plateforme_</title>
+    <style>
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            gap: 2px;
+            width: 306px;
+        }
+        .tile {
+            width: 100px;
+            height: 100px;
+            background: #ccc;
+            cursor: pointer;
+        }
+        .empty {
+            background: #fff;
+        }
+        #message {
+            font-size: 24px;
+            color: green;
+            display: none;
+        }
+        #restart {
+            display: none;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="game" class="grid"></div>
+    <div id="message">Vous avez gagné</div>
+    <img src="./images/logo1.PNG" class="logo1" data-order="1">
+    <img src="./images/logo2.PNG" class="logo2" data-order="2">
+    <img src="./images/logo3.PNG" class="logo3" data-order="3">
+    <img src="./images/logo4.PNG" class="logo4" data-order="4">
+    <img src="./images/logo5.PNG" class="logo5" data-order="5">
+    <img src="./images/logo6.PNG" class="logo6" data-order="6">
+    <img src="./images/logo7.PNG" class="logo7" data-order="7">
+    <img src="./images/logo8.PNG" class="logo8" data-order="8">
+    <img src="./images/logo9.PNG" class="logo9" data-order="9">
+    
+
+    <button id="restart">Recommencer</button>
+
+    <script>
+        const game = document.getElementById('game');
+        const message = document.getElementById('message');
+        const restartBtn = document.getElementById('restart');
+        let tiles = [1, 2, 3, 4, 5, 6, 7, 8, null]; // null représente la case vide
+        let solved = [1, 2, 3, 4, 5, 6, 7, 8, null];
+
+        function initGame() {
+            // Mélanger les tuiles
+            tiles = tiles.sort(() => Math.random() - 0.5);
+            renderBoard();
+        }
+
+        function renderBoard() {
+            game.innerHTML = '';
+            tiles.forEach((tile, index) => {
+                const img = document.createElement('img');
+                img.className= tile ? 'tile' : 'empty';
+                //img.textContent = tile || '';
+                img.src= "./images/logo1.PNG"
+                img.src= "./images/logo2.PNG"
+                img.src= "./images/logo3.PNG"
+                img.src= "./images/logo4.PNG"
+                img.src= "./images/logo4.PNG"
+                img.src= "./images/logo5.PNG"
+                img.src= "./images/logo6.PNG"
+                img.src= "./images/logo7.PNG"
+                img.src= "./images/logo8.PNG" 
+                img.addEventListener('click', () => moveTile(index));
+                game.appendChild(img);
+            });
+        }
+
+        function moveTile(index) {
+            const emptyIndex = tiles.indexOf(null);
+            const validMoves = [
+                emptyIndex - 1, emptyIndex + 1, // gauche, droite
+                emptyIndex - 3, emptyIndex + 3  // haut, bas
+            ];
+
+            if (validMoves.includes(index)) {
+                [tiles[index], tiles[emptyIndex]] = [tiles[emptyIndex], tiles[index]];
+                renderBoard();
+                checkWin();
+            }
+        }
+
+        function checkWin() {
+            if (tiles.every((tile, i) => tile === solved[i])) {
+                message.style.display = 'block';
+                game.style.pointerEvents = 'none'; // Bloquer les clics
+                restartBtn.style.display = 'block';
+            }
+        }
+
+        restartBtn.addEventListener('click', () => {
+            message.style.display = 'none';
+            restartBtn.style.display = 'none';
+            game.style.pointerEvents = 'auto';
+            initGame();
+        });
+
+        initGame();
+    </script>
+</body>
+</html>
