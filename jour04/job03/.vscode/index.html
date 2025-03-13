@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de filtrage Pokémon</title>
+</head>
+<body>
+
+    <h1>Filtrer les Pokémon</h1>
+
+    <!-- Formulaire -->
+    <form id="filterForm">
+        <label for="id">ID :</label>
+        <input type="text" id="id" name="id">
+        <br><br>
+
+        <label for="name">Nom :</label>
+        <input type="text" id="name" name="name">
+        <br><br>
+
+        <label for="type">Type :</label>
+        <select id="type" name="type">
+            <option value="">Sélectionnez un type</option>
+            <option value="Fire">Feu</option>
+            <option value="Water">Eau</option>
+            <option value="Grass">Plante</option>
+            <option value="Electric">Électrique</option>
+            <option value="Psychic">Psy</option>
+            <!-- Ajoutez d'autres types de Pokémon ici -->
+        </select>
+        <br><br>
+
+        <input type="button" value="Filtrer" onclick="filterPokemon()">
+    </form>
+
+    <h2>Résultats filtrés :</h2>
+    <ul id="pokemonList"></ul>
+
+    <script>
+      async function filterPokemon() {
+    const id = document.getElementById("id").value;
+    const name = document.getElementById("name").value.toLowerCase();
+    const type = document.getElementById("type").value;
+
+    try {
+        const response = await fetch('pokemon.json');
+        if (!response.ok) throw new Error("Fichier JSON introuvable !");
+        
+        const data = await response.json();
+
+        const filteredPokemon = data.filter(pokemon => {
+            return (
+                (id === "" || pokemon.id === parseInt(id)) && // Comparaison correcte de l'ID
+                (name === "" || pokemon.name.french.toLowerCase().includes(name)) && // Comparaison correcte du nom
+                (type === "" || pokemon.type.includes(type)) // Vérification correcte du type
+            );
+        });
+
+        displayPokemon(filteredPokemon);
+    } catch (error) {
+        console.error('Erreur lors du chargement du fichier JSON :', error);
+        alert("Impossible de charger les données.");
+    }
+}
+
+function displayPokemon(pokemonList) {
+    const pokemonListElement = document.getElementById("pokemonList");
+    pokemonListElement.innerHTML = ""; 
+
+    if (pokemonList.length === 0) {
+        pokemonListElement.innerHTML = "<li>Aucun Pokémon trouvé.</li>";
+    } else {
+        pokemonList.forEach(pokemon => {
+            const listItem = document.createElement("li");
+            listItem.textContent = `ID: ${pokemon.id}, Nom: ${pokemon.name.french}, Type: ${pokemon.type.join(", ")}`;
+            pokemonListElement.appendChild(listItem);
+        });
+    }
+}
+
+    </script>
+
+</body>
+</html>
