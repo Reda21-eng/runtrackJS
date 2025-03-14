@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .error {
+            color: red;
+            font-size: 0.8em;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <form id="signupForm">
+        <h2>Inscription</h2>
+
+        <label>Nom :</label>
+        <input type="text" id="nom" required>
+        <span class="error" id="nomError"></span>
+
+        <label>Prénom :</label>
+        <input type="text" id="prenom" required>
+        <span class="error" id="prenomError"></span>
+
+        <label>Email :</label>
+        <input type="email" id="email" required>
+        <span class="error" id="emailError"></span>
+
+        <label>Mot de passe :</label>
+        <input type="password" id="password" required minlength="6">
+        <span class="error" id="passwordError"></span>
+
+        <label>Adresse :</label>
+        <input type="text" id="adresse" required>
+        <span class="error" id="adresseError"></span>
+
+        <label>Code postal :</label>
+        <input type="text" id="codePostal" required maxlength="5">
+        <span class="error" id="codePostalError"></span>
+
+        <button type="submit">S'inscrire</button>
+    </form>
+
+    <script>
+        function validateInput(id, regex, errorMsg) {
+            document.getElementById(id).addEventListener("input", function() {
+                let value = this.value;
+                let errorElement = document.getElementById(id + "Error");
+                errorElement.textContent = regex.test(value) ? "" : errorMsg;
+            });
+        }
+
+        validateInput("nom", /^[A-Za-zÀ-ÿ- ]{2,}$/, "Nom invalide");
+        validateInput("prenom", /^[A-Za-zÀ-ÿ- ]{2,}$/, "Prénom invalide");
+        validateInput("email", /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, "Email invalide");
+        validateInput("password", /^.{6,}$/, "Mot de passe trop court (min 6 caractères)");
+        validateInput("adresse", /^.{5,}$/, "Adresse trop courte");
+        validateInput("codePostal", /^\d{5}$/, "Code postal invalide (5 chiffres requis)");
+    </script>
+</body>
+</html>
