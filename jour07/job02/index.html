@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire d'inscription</title>
+    <!-- Materialize CSS CDN 1.0.0 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header avec navigation amélioré avec classes Materialize -->
+    <header>
+        <nav class="nav-wrapper teal lighten-2">
+            <div class="container">
+                <a href="index.html" class="brand-logo left">Mon Site</a>
+                <ul class="right">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="index.html">Inscription</a></li>
+                    <li><a href="index.html">Connexion</a></li>
+                    <li><a href="index.html">Rechercher</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Section principale avec formulaire -->
+    <section class="section container">
+        <div class="row">
+            <form class="col s12">
+                <!-- Civilité -->
+                <div class="row">
+                    <div class="col s12">
+                        <h5>Civilité</h5>
+                        <p>
+                            <label>
+                                <input name="civilite" type="radio" value="mr" required />
+                                <span>Monsieur</span>
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <input name="civilite" type="radio" value="mme" />
+                                <span>Madame</span>
+                            </label>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Prénom, Nom, Adresse -->
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="prenom" type="text" class="validate" required>
+                        <label for="prenom">Prénom</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="nom" type="text" class="validate" required>
+                        <label for="nom">Nom</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="adresse" type="text" class="validate" required>
+                        <label for="adresse">Adresse</label>
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="email" type="email" class="validate" required>
+                        <label for="email">Email</label>
+                    </div>
+                </div>
+
+                <!-- Mot de passe -->
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="password" type="password" class="validate" required>
+                        <label for="password">Mot de passe</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="password_confirm" type="password" class="validate" required>
+                        <label for="password_confirm">Confirmer le mot de passe</label>
+                    </div>
+                </div>
+
+                <!-- Passions -->
+                <div class="row">
+                    <div class="col s12">
+                        <h5>Vos passions</h5>
+                        <p>
+                            <label>
+                                <input type="checkbox" name="passions" value="informatique" />
+                                <span>Informatique</span>
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <input type="checkbox" name="passions" value="voyages" />
+                                <span>Voyages</span>
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <input type="checkbox" name="passions" value="sport" />
+                                <span>Sport</span>
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <input type="checkbox" name="passions" value="lecture" />
+                                <span>Lecture</span>
+                            </label>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Bouton de validation -->
+                <div class="row">
+                    <div class="col s12">
+                        <button class="btn waves-effect waves-light teal" type="submit">
+                            Valider
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="page-footer teal">
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <ul>
+                        <li><a href="index.html" class="white-text">Accueil</a></li>
+                        <li><a href="index.html" class="white-text">Inscription</a></li>
+                        <li><a href="index.html" class="white-text">Connexion</a></li>
+                        <li><a href="index.html" class="white-text">Rechercher</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
