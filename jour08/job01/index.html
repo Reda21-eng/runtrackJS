@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen flex flex-col">
+    <header class="bg-gray-800 text-white p-4">
+        <nav class="container mx-auto">
+            <ul class="flex space-x-6 justify-center">
+                <li><a href="index.html" class="hover:text-gray-300">Accueil</a></li>
+                <li><a href="index.html" class="hover:text-gray-300">Inscription</a></li>
+                <li><a href="index.html" class="hover:text-gray-300">Connexion</a></li>
+                <li><a href="index.html" class="hover:text-gray-300">Rechercher</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="flex-grow container mx-auto p-6">
+        <form class="max-w-md mx-auto space-y-6">
+            <!-- Civilité -->
+            <div class="space-y-2">
+                <label class="block font-medium">Civilité :</label>
+                <div class="flex space-x-4">
+                    <div class="flex items-center">
+                        <input type="radio" id="mme" name="civilite" value="mme" class="mr-2">
+                        <label for="mme">Madame</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="radio" id="mr" name="civilite" value="mr" class="mr-2">
+                        <label for="mr">Monsieur</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Informations personnelles -->
+            <div class="space-y-4">
+                <div>
+                    <label for="prenom" class="block font-medium">Prénom :</label>
+                    <input type="text" id="prenom" name="prenom" class="w-full p-2 border rounded">
+                </div>
+                <div>
+                    <label for="nom" class="block font-medium">Nom :</label>
+                    <input type="text" id="nom" name="nom" class="w-full p-2 border rounded">
+                </div>
+                <div>
+                    <label for="adresse" class="block font-medium">Adresse :</label>
+                    <input type="text" id="adresse" name="adresse" class="w-full p-2 border rounded">
+                </div>
+            </div>
+
+            <!-- Email -->
+            <div>
+                <label for="email" class="block font-medium">Email :</label>
+                <input type="email" id="email" name="email" class="w-full p-2 border rounded">
+            </div>
+
+            <!-- Mot de passe -->
+            <div class="space-y-4">
+                <div>
+                    <label for="password" class="block font-medium">Mot de passe :</label>
+                    <input type="password" id="password" name="password" class="w-full p-2 border rounded">
+                </div>
+                <div>
+                    <label for="password_confirm" class="block font-medium">Confirmation mot de passe :</label>
+                    <input type="password" id="password_confirm" name="password_confirm" class="w-full p-2 border rounded">
+                </div>
+            </div>
+
+            <!-- Passions -->
+            <div class="space-y-2">
+                <label class="block font-medium">Passions :</label>
+                <div class="space-y-2">
+                    <div class="flex items-center">
+                        <input type="checkbox" id="informatique" name="passions" value="informatique" class="mr-2">
+                        <label for="informatique">Informatique</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" id="voyages" name="passions" value="voyages" class="mr-2">
+                        <label for="voyages">Voyages</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" id="sport" name="passions" value="sport" class="mr-2">
+                        <label for="sport">Sport</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" id="lecture" name="passions" value="lecture" class="mr-2">
+                        <label for="lecture">Lecture</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bouton de validation -->
+            <div>
+                <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Valider</button>
+            </div>
+        </form>
+    </section>
+
+    <footer class="bg-gray-800 text-white p-4 mt-auto">
+        <ul class="flex space-x-6 justify-center">
+            <li><a href="index.html" class="hover:text-gray-300">Accueil</a></li>
+            <li><a href="index.html" class="hover:text-gray-300">Inscription</a></li>
+            <li><a href="index.html" class="hover:text-gray-300">Connexion</a></li>
+            <li><a href="index.html" class="hover:text-gray-300">Rechercher</a></li>
+        </ul>
+    </footer>
+</body>
+</html>
