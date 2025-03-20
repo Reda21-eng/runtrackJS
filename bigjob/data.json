@@ -1,0 +1,14 @@
+{
+    "users": [
+        {
+            "email": "etudiant@laplateforme.io",
+            "password": "hashed_password",
+            "role": "student"
+        },
+        {
+            "email": "moderateur@laplateforme.io",
+            "password": "hashed_password",
+            "role": "moderator"
+        }
+    ]
+}
